@@ -3,9 +3,52 @@ import time
 import spotipy
 from spotipy.oauth2 import SpotifyOAuth
 import creds
+import os
+import platform
+import subprocess
+import shutil
+from pathlib import Path
+
+def get_spotify_path():
+    system = platform.system()
+
+    if system == "Windows":
+        possible_paths = [
+            os.path.join(os.getenv("APPDATA"), "Spotify", "Spotify.exe"),
+            os.path.join(os.getenv("LOCALAPPDATA"), "Microsoft", "WindowsApps", "Spotify.exe"),
+        ]
+        for path in possible_paths:
+            if os.path.isfile(path):
+                return path
+        return shutil.which("Spotify.exe")  # fallback if in PATH
+
+    elif system == "Darwin":  # macOS
+        # Default location when installed from dmg
+        app_path = "/Applications/Spotify.app/Contents/MacOS/Spotify"
+        if os.path.isfile(app_path):
+            return app_path
+        return shutil.which("spotify")  # if it's in PATH
+
+    elif system == "Linux":
+        # Usually just installed system-wide or via snap/flatpak
+        return shutil.which("spotify")
+
+    else:
+        raise RuntimeError(f"Unsupported OS: {system}")
+
+def launch_spotify():
+    spotify_path = get_spotify_path()
+    if spotify_path:
+        subprocess.Popen([spotify_path])
+        print(f"Launching Spotify from: {spotify_path}")
+    else:
+        print("Spotify not found on this system.")
+
+# Call the function
+launch_spotify()
+
 
 # Launch Spotify app (change the path if necessary)
-subprocess.Popen([r"C:\Users\ishaa\AppData\Roaming\Spotify\Spotify.exe"])
 # Wait for the application to launch
 time.sleep(5)
 
