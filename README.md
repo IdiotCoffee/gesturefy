@@ -9,11 +9,11 @@ Made by Ishaan Mavinkurve. Check out the demo video on LinkedIn.
 
 ### 🔧 Features
 
-👉 Swipe left/right to switch tracks
-✊ Pinch to pause playback
-👍 Thumbs-up to resume music
-👐 Use two hands to control volume by changing the distance between them
-🧠 Smart lock: disables swipe gestures when two hands are detected to prevent accidental skips
+- 👉 Swipe left/right to switch tracks
+- ✊ Pinch to pause playback
+- 👍 Thumbs-up to resume music
+- 👐 Use two hands to control volume by changing the distance between them
+- 🧠 Smart lock: disables swipe gestures when two hands are detected to prevent accidental skips
 
 
 ### 🧠 How It Works
