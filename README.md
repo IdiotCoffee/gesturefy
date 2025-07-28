@@ -46,41 +46,9 @@ python main.py
 
 On first run, Spotify will ask for permission in a browser popup — click OK, and you’re in.
 
-📁 Project Structure
-gesturefy/
-│
-├── main.py            # Main file with webcam + gesture logic
-├── creds.py           # Spotify credentials (add this yourself)
-├── mute.py            # Detect pinch gesture
-├── play.py            # Detect thumbs-up
-├── tracks.py          # Detect swipe left/right
-├── volume.py          # Volume control using two hands
-└── README.md          # You're reading it
-
-
 🛠️ Built With
 
 MediaPipe for real-time hand tracking
 Spotipy to control Spotify playback
 OpenCV for webcam and visual overlay
 NumPy for gesture math
-
-
-💡 Why This Was Interesting
-A seemingly simple feature — swipe detection — was surprisingly tricky. Hands move fast, webcam input can jitter, and false positives were everywhere. Adding logic to lock gestures when both hands are up made the whole experience way smoother.
-
-⚠️ Notes
-
-Works best under good lighting conditions
-Currently supports webcam input only (no mobile support yet)
-Only supports one Spotify account at a time
-
-
-🎵 Music
-For demo purposes, consider using royalty-free tracks. Here’s a good playlist:StreamBeats by Harris Heller
-
-📝 License
-MIT — do whatever you want, just don’t sell it as your own.
-
-🙋‍♂️ Questions?
-Open an issue or message me on GitHub if you're curious how it works under the hood.
